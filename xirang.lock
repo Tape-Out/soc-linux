@@ -1,0 +1,51 @@
+xirang-lock: 1
+top: soc-linux
+packages:
+- name: aclint
+  version: 0.1.0
+  kind: ip
+  source:
+    path: aclint
+  digest: sha256:0bdef626562592dc420903a2758e2f46
+- name: amba
+  version: 0.1.0
+  kind: library
+  source:
+    path: amba
+  digest: sha256:6e68171645ae543754e6bce87a081870
+- name: hart
+  version: 0.1.0
+  kind: ip
+  source:
+    path: hart
+  digest: sha256:baeb6d4a093d47825565fbcf504f526e
+- name: hwcore
+  version: 0.1.0
+  kind: library
+  source:
+    path: hwcore
+  digest: sha256:b4976d25b3e5636c63ad6926fdbc7b10
+- name: plic
+  version: 0.1.0
+  kind: ip
+  source:
+    path: plic
+  digest: sha256:30b2e95c9a0d45eb8ef488a06d17173f
+- name: soc-linux
+  version: 0.1.0
+  kind: ip
+  source:
+    path: soc-linux
+  digest: sha256:4d1f92cd88c9611dea66f1e8362309d1
+- name: sram
+  version: 0.1.0
+  kind: ip
+  source:
+    path: sram
+  digest: sha256:ff5d9729611807d88b82c2859bdf335c
+- name: uart
+  version: 0.1.0
+  kind: ip
+  source:
+    path: uart
+  digest: sha256:f04bbd1620701a375d06bcb3ee637d5e
