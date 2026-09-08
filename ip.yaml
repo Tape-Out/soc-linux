@@ -1,0 +1,43 @@
+name: soc-linux
+version: 0.1.0
+spec: '0.1'
+identity:
+  slug: soc-linux-tapeout
+  display_name: Single core SoC with memory
+  summary: A core, memory and the interrupt controllers, assembled from the catalogue.
+  category: soc
+  maturity: planned
+bus: apb4
+deps:
+  hwcore: ^0.1
+  amba: ^0.1
+instances:
+- name: cpu
+  of: hart
+  with:
+    mul: true
+    smode: true
+- name: mem
+  of: sram
+  with:
+    words: 1024
+  addr: 2147483648
+- name: uart0
+  of: uart
+  with:
+    fifoDepth: 8
+    parity: false
+    flowctrl: false
+  addr: 268439552
+- name: clint
+  of: aclint
+  with:
+    harts: 1
+    ssip: true
+  addr: 33554432
+- name: plic0
+  of: plic
+  with:
+    sources: 8
+    contexts: 2
+  addr: 201326592
