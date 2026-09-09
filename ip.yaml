@@ -58,11 +58,12 @@ instances:
   addr: 201326592
 connect:
 - to: cpu.irq.irq
-  desc: 平台的三根中断线：软件中断与计时器来自 clint，外部中断来自 plic
+  desc: 平台的四根中断线：软件中断与计时器来自 clint，外部中断来自 plic，第四根是 SSWI 的边沿
   args:
   - clint.msip[0] == 1
   - clint.mtip[0] == 1
   - plic0.eip[0] == 1
+  - clint.setssip[0] == 1
 pipe:
 - manager: cpu.imem
   target: l1i.up
