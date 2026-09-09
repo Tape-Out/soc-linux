@@ -11,12 +11,20 @@ bus: apb4
 deps:
   hwcore: ^0.1
   amba: ^0.1
+  cache: ^0.1
 instances:
 - name: cpu
   of: hart
   with:
     mul: true
     smode: true
+- name: l1d
+  of: cache
+  with:
+    lines: 8
+    wpl: 4
+    stats: true
+  addr: 268488704
 - name: mem
   of: sram
   with:
@@ -48,3 +56,7 @@ connect:
   - clint.msip[0] == 1
   - clint.mtip[0] == 1
   - plic0.eip[0] == 1
+pipe:
+- manager: cpu.dmem
+  target: l1d.up
+  desc: 访存口同理。I 侧 D 侧各一个，与计划里「两个 Server 接 cache」同形
