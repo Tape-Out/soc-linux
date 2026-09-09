@@ -42,7 +42,7 @@ packages:
   kind: ip
   source:
     path: soc-linux
-  digest: sha256:34ac4ded6803e072b45b6399f5890ba2
+  digest: sha256:31989ed8d12b23beb457e2de8201f0c7
 - name: sram
   version: 0.1.0
   kind: ip

@@ -143,7 +143,7 @@ module mkSocTb(Empty);
       end
       Run: begin
         // 放开核，给它跑完的时间
-        if (wait_ > 6000) begin ph <= Read; idx <= 0; st <= 0; end
+        if (wait_ > 60000) begin ph <= Read; idx <= 0; st <= 0; end
         else wait_ <= wait_ + 1;
       end
       Read: begin

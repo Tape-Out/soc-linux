@@ -18,6 +18,13 @@ instances:
   with:
     mul: true
     smode: true
+- name: l1i
+  of: cache
+  with:
+    lines: 8
+    wpl: 4
+    stats: true
+  addr: 268484608
 - name: l1d
   of: cache
   with:
@@ -57,6 +64,9 @@ connect:
   - clint.mtip[0] == 1
   - plic0.eip[0] == 1
 pipe:
+- manager: cpu.imem
+  target: l1i.up
+  desc: 取指口先过一级缓存，缓存的下游口才上总线
 - manager: cpu.dmem
   target: l1d.up
   desc: 访存口同理。I 侧 D 侧各一个，与计划里「两个 Server 接 cache」同形
