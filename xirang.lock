@@ -12,7 +12,7 @@ packages:
   kind: library
   source:
     path: amba
-  digest: sha256:5e08761cf23a4bb5e16863abfeb5dc06
+  digest: sha256:88b658d88a74c8a0b1c5c9e14c000463
 - name: cache
   version: 0.1.0
   kind: ip
@@ -30,7 +30,7 @@ packages:
   kind: library
   source:
     path: hwcore
-  digest: sha256:858489a9c20e52516644993de4506cd8
+  digest: sha256:c804a53733bd511dfd5c5f766e873efe
 - name: plic
   version: 0.1.0
   kind: ip
@@ -42,13 +42,13 @@ packages:
   kind: ip
   source:
     path: soc-linux
-  digest: sha256:31989ed8d12b23beb457e2de8201f0c7
+  digest: sha256:047a0e4e065208d920ab897c6c958aa5
 - name: sram
   version: 0.1.0
   kind: ip
   source:
     path: sram
-  digest: sha256:cf3b06696a9bb4e1af0c8e9e3f6a821a
+  digest: sha256:ad9c19f8c5900569d241f333b4186115
 - name: uart
   version: 0.1.0
   kind: ip
