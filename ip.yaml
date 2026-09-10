@@ -36,6 +36,7 @@ instances:
   of: sram
   with:
     words: 1024
+    sync: true
   addr: 2147483648
 - name: uart0
   of: uart
