@@ -73,3 +73,6 @@ pipe:
 - manager: cpu.dmem
   target: l1d.up
   desc: 访存口同理。I 侧 D 侧各一个，与计划里「两个 Server 接 cache」同形
+test:
+  # 缓存行数与同步存储改的是访存时序，只有装进 SoC 才看得出对不对
+  axes: [cpu.mul, cpu.mmu, l1i.lines, l1d.lines, mem.sync]
