@@ -1,5 +1,5 @@
 xirang-lock: 1
-top: soc-linux
+top: soc-mpu
 packages:
 - name: aclint
   version: 0.1.0
@@ -19,12 +19,6 @@ packages:
   source:
     path: cache
   digest: sha256:17d21d8d05582885cfdb111fd12706c3
-- name: hart
-  version: 0.1.0
-  kind: ip
-  source:
-    path: hart
-  digest: sha256:29fe6720ad2a06edfb05b26a5bcef61e
 - name: hwcore
   version: 0.1.0
   kind: library
@@ -37,18 +31,24 @@ packages:
   source:
     path: plic
   digest: sha256:a558303f1f1ea048717e3ff3bde2d15a
+- name: rvcore
+  version: 0.1.0
+  kind: ip
+  source:
+    path: rvcore
+  digest: sha256:62999a0327451edd9ed32cfdc635daaa
 - name: rvfi
   version: 0.1.0
   kind: library
   source:
     path: rvfi
   digest: sha256:56d115d3c3953add0c38eefde5099015
-- name: soc-linux
+- name: soc-mpu
   version: 0.1.0
   kind: ip
   source:
-    path: soc-linux
-  digest: sha256:047a0e4e065208d920ab897c6c958aa5
+    path: soc-mpu
+  digest: sha256:bf10da7e752e84399751a46e1bd17f81
 - name: sram
   version: 0.1.0
   kind: ip

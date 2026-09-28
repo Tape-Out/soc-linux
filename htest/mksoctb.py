@@ -1,4 +1,4 @@
-"""soc-linux 的端到端测试台。
+"""soc-mpu 的端到端测试台。
 
 验的是整条链路：外部总线 -> 交换网 -> 内存，核取指、执行、访存，再穿过同一张
 地址图去够别的设备。装配、仲裁、译码、核，任何一处错都在这里现形。
@@ -86,7 +86,7 @@ import Hart::*;
 import Uart::*;
 import Aclint::*;
 import Plic::*;
-import SocLinuxPkg::*;
+import SocMpuPkg::*;
 import SocProg::*;
 
 // 端到端：装程序 -> 放核 -> 读结果。整条链路上任何一处错都在这里现形。
@@ -95,7 +95,7 @@ typedef enum { Load, Run, Read, Done } Phase deriving (Bits, Eq);
 
 (* synthesize *)
 module mkSocTb(Empty);
-  SocLinuxIfc soc <- mkSocLinux;
+  SocMpuIfc soc <- mkSocMpu;
 
   Reg#(Phase)    ph   <- mkReg(Load);
   Reg#(Bit#(32)) idx  <- mkReg(0);

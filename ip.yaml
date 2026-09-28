@@ -1,9 +1,9 @@
-name: soc-linux
+name: soc-mpu
 version: 0.1.0
 spec: '0.1'
 identity:
-  slug: soc-linux-tapeout
-  display_name: Single core SoC with memory
+  slug: soc-mpu-tapeout
+  display_name: Single core SoC with an MMU
   summary: A core, memory and the interrupt controllers, assembled from the catalogue.
   category: soc
   maturity: planned
@@ -14,10 +14,11 @@ deps:
   cache: ^0.1
 instances:
 - name: cpu
-  of: hart
+  of: rvcore
   with:
     mul: true
     smode: true
+    mmu: true
 - name: l1i
   of: cache
   with:
