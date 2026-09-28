@@ -1,6 +1,6 @@
 # soc-linux
 
-Linux-capable reference SoC: Sv32 memory management, cache, DRAM and Ethernet.
+Reference SoC on the way to Linux: a supervisor-capable core, first level caches and a PLIC.
 
 ![maturity](https://img.shields.io/badge/maturity-planned-lightgrey) ![license](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0%20OR%20MulanPSL--2.0-blue)
 
@@ -11,7 +11,17 @@ bus-neutral contracts in [`hwcore`](https://github.com/Tape-Out/hwcore), assembl
 
 ## Status
 
-Planned. The entry in [`index`](https://github.com/Tape-Out/index) tracks what lands when.
+Assembled and tested end to end in CI; the badge stays at `planned` while the assembler is being reworked. It does not boot Linux yet.
+
+| Part | Repository | Configuration |
+|:--:|:--:|:--:|
+| core | [`hart`](https://github.com/Tape-Out/hart) | RV32IM with supervisor mode; the Sv32 MMU is off |
+| caches | [`cache`](https://github.com/Tape-Out/cache) ×2 | instruction and data, 8 lines of 4 words, direct mapped, write through |
+| memory | [`sram`](https://github.com/Tape-Out/sram) | 1024 words (4 KiB) at `0x8000_0000` |
+| interrupts | [`aclint`](https://github.com/Tape-Out/aclint) · [`plic`](https://github.com/Tape-Out/plic) | one hart with supervisor software interrupts · 8 sources, 2 contexts |
+| console | [`uart`](https://github.com/Tape-Out/uart) | at `0x1000_1000` |
+
+Fetch and load/store each go through their own cache, and the caches' lower ports share the switch. All four interrupt lines of the core are wired: machine software and timer from the CLINT, external from the PLIC, and the supervisor software edge. What Linux still needs: the MMU turned on, far more memory than 4 KiB, and the A extension, which `hart` does not have.
 
 ## License
 
